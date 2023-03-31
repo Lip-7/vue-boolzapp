@@ -46,7 +46,7 @@
                                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                               </div>
                         </div>
-                        <div class="friends">
+                        <div class="friendsList">
                             <div class="singleFriend w-100 d-flex justify-content-between align-items-start px-3 py-2">
                                 <div class="singleFriendInfos d-flex justify-content-center align-items-center gap-4">
                                     <div class="friendImg">
@@ -65,7 +65,21 @@
                     </div>
                 </div>
                 <div class="right-app">
-                    <div class="headerRightApp"></div>
+                    <div class="headerRightApp d-flex justify-content-between align-items-center">
+                        <div class="userProfile px-2 py-3 d-flex justify-content-between align-items-center gap-2">
+                            <div class="userImg">
+                                <img :src="user.avatar" :alt="user.name">
+                            </div>
+                            <div class="userName">
+                                <span class="fw-medium">{{user.name}}</span>
+                            </div>
+                        </div>
+                        <div class="settingIcons d-flex gap-4 me-3">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
                     <div class="mainContent"></div>
                     <div class="userBar">
                         <div class="emoticons"></div>
