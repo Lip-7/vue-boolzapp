@@ -75,6 +75,16 @@ header{
 .notificationSheets a{
     color: grey;
 }
+/* searching bar */
+.input-group-text{
+    color: var(--icons);
+    cursor: pointer;
+}
+.input-group input{
+    font-weight: 500;
+    color: var(--bg-grey);
+}
+
 /* /left app */
 
 /* right app */
