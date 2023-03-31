@@ -76,13 +76,37 @@ header{
     color: grey;
 }
 /* searching bar */
+.searchBar{
+    background-color: var(--bgHeaderApp);
+}
 .input-group-text{
     color: var(--icons);
     cursor: pointer;
 }
 .input-group input{
     font-weight: 500;
-    color: var(--bg-grey);
+}
+.input-group input::placeholder{
+    opacity: .7;
+}
+/* friends */
+.singleFriend{
+    border-top: 1px solid rgba(128, 128, 128, .15);
+}
+.friendImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.friendImg img{
+    width: 100%;
+}
+.friendName span{
+    color: var(--icons);
+}
+.messagedate {
+    color: var(--icons);
 }
 
 /* /left app */
