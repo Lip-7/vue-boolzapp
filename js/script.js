@@ -3,6 +3,11 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            user: {
+                id:0,
+                name: 'Lip',
+                avatar: './img/bulldog-chess.png',
+            },
             contacts: [
                 {
                     id:1,

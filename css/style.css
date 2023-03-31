@@ -13,6 +13,7 @@
     --sentMessage: #D5F9BA;
     --icons: #B1B1B1;
 }
+/* main wrappers */
 main{
     background-color: var(--bg-grey);
 }
@@ -28,4 +29,67 @@ header{
     height: 90%;
     z-index: 3;
     position: relative;
+}
+.left-app,.right-app{
+    height: 100%;
+}
+/* left app */
+
+.left-app{
+    width: 100%;
+    border-right: 1px solid rgba(128, 128, 128, .3);
+    
+}
+/* headerLeftApp */
+.headerLeftApp{
+    background-color: var(--bgHeaderApp);
+}
+
+.userImg{
+    width: 40px;
+    cursor: pointer;
+
+}
+.userImg img{
+    width: 100%;
+    border-radius: 50%;
+}
+.settingIcons i{
+    color: var(--icons);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* nothifications */
+.notificationsAlert{
+    background-color: var(--bgActiveNotify);
+}
+.notificationIcon{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+}
+.notificationIcon i{
+    color: var(--bgActiveNotify);
+}
+.notificationSheets a{
+    color: grey;
+}
+/* /left app */
+
+/* right app */
+.right-app{
+    width: 0%;
+    background-color: var(--bgHeaderApp);
+}
+
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 768px) {
+    .left-app{
+        width: 40%;
+    }
+    .right-app{
+        width: 60%;
+    }
 }
