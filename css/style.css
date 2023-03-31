@@ -5,11 +5,27 @@
 }
 :root{
     --green: #009688;
-    --bg-grey: #DBDBD3;
+    --bg-grey: #DBDBD2;
     --activeChat: #E9EBEB;
     --hoverChat: #E5E5E5;
     --bgHeaderApp: #EAEAEA;
     --bgActiveNotify: #8EDAFC;
     --sentMessage: #D5F9BA;
     --icons: #B1B1B1;
+}
+main{
+    background-color: var(--bg-grey);
+}
+header{
+    background-color: var(--green);
+    height: 150px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.web-app{
+    background-color: white;
+    height: 90%;
+    z-index: 3;
+    position: relative;
 }
