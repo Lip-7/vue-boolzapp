@@ -140,7 +140,10 @@ header{
 .right-app .userBar{
     height: 72px;
 }
-
+.right-app .friendChatInfo{
+    font-size: .8rem;
+    color: grey;
+}
 
 
 /* MEDIA QUERIES */
