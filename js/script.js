@@ -6,6 +6,7 @@ createApp({
             user: user,
             contacts: contacts,
             research: '',
+            idChatFlag: 1,
         }
     },
     methods: {
@@ -22,6 +23,9 @@ createApp({
                     user.visible = false;
                 }
             })
+        },
+        selectNewChat(id) {
+            this.idChatFlag = id;
         }
     },
 }).mount('#app');

@@ -100,7 +100,13 @@ header{
     border-top: 1px solid rgba(128, 128, 128, .15);
     cursor: pointer;
 }
-.singleFriend:hover {
+.friendCondition.active{
+    background-color: var(--activeChat);
+}
+.friendCondition.active:hover{
+    background-color: var(--activeChat);
+}
+.friendCondition:hover {
     background-color: var(--hoverChat);
 }
 .friendImg{
