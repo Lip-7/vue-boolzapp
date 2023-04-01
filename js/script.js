@@ -9,6 +9,7 @@ createApp({
             idChatFlag: 1,
             chatToView: null,
             newMessage: '',
+            possibleAnswers: possibleAnswers,
         }
     },
     methods: {
@@ -38,7 +39,19 @@ createApp({
             const newMessage = this.createNewMessage();
             const destination = this.contacts.filter(chat => chat.id == this.idChatFlag)[0];
             destination.messages.push(newMessage);
+            this.receiveNewMessage(destination)
+            this.seeLastMessages()
             this.newMessage = ''
+        },
+        receiveNewMessage(destin) {
+            setTimeout(() => {
+                const newMessage = this.createNewMessage();
+                const messageContent = this.possibleAnswers[this.getRandomNumber(0, this.possibleAnswers.length - 1)]
+                newMessage.status = 'received';
+                newMessage.message = messageContent;
+                destin.messages.push(newMessage);
+                this.seeLastMessages()
+            }, 3000);
         },
         createNewMessage() {
             return {
@@ -46,7 +59,6 @@ createApp({
                 message: this.newMessage,
                 status: 'sent'
              }
-
         },
         actualTime() {
             const today = new Date();
@@ -55,6 +67,14 @@ createApp({
             const actualDate = today.toLocaleString('it-IT', dateTpl);
             const actualHour = today.toLocaleString('it-IT', hourTpl);
             return `${actualDate} ${actualHour}`
+        },
+        getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        seeLastMessages() {
+            setTimeout(() => {
+                this.$refs.chat.scrollTo(0, this.$refs.chat.scrollHeight);
+            }, 50);
         }
     },
     beforeMount() {

@@ -70,10 +70,10 @@
                     <div class="headerRightApp d-flex justify-content-between align-items-center">
                         <div class="userProfile px-2 py-3 d-flex justify-content-between align-items-center gap-2">
                             <div class="userImg">
-                                <img :src="user.avatar" :alt="user.name">
+                                <img :src="chatToView.avatar" :alt="chatToView.name">
                             </div>
                             <div class="userName">
-                                <span class="fw-medium d-block">{{user.name}}</span>
+                                <span class="fw-medium d-block">{{chatToView.name}}</span>
                                 <span class="friendChatInfo">Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div class="mainContent d-flex flex-column overflow-y-auto">
+                    <div class="mainContent d-flex flex-column overflow-y-auto" ref="chat">
                         <div :class="{'send' : comunication.status == 'sent', 'received' : comunication.status == 'received'}" v-for="comunication in chatToView.messages" class="newMessage d-flex align-items-center text-center flex-wrap position-relative">
                             <p class="text-start">{{comunication.message}}</p>
                             <span class="messageTime">{{getHour(comunication.date)}}</span>
