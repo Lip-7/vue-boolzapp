@@ -84,23 +84,24 @@
                         </div>
                     </div>
                     <div class="mainContent d-flex flex-column overflow-y-auto">
-                        <div class="newMessage send d-flex align-items-center text-center flex-wrap">
+                        <div :class="{'send' : comunication.status == 'sent', 'received' : comunication.status == 'received'}" v-for="comunication in chatToView.messages" class="newMessage d-flex align-items-center text-center flex-wrap position-relative">
+                            <p class="text-start">{{comunication.message}}</p>
+                            <span class="messageTime">{{getHour(comunication.date)}}</span>
+                        </div>
+                        <!-- <div class="newMessage send d-flex align-items-center text-center flex-wrap">
                             <p class="text-start">Come staiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii?</p>
                         </div>
                         <div class="newMessage received d-flex align-items-center text-center flex-wrap">
                             <p class="text-start">Come staiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii?</p>
-                        </div>
-                        <div class="newMessage received d-flex align-items-center text-center flex-wrap">
-                            <p class="text-start">Come staiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii?</p>
-                        </div>
-                        
+                        </div> -->
                     </div>
                     <div class="userBar d-flex justify-content-between align-items-center">
                         <div class="emoticons d-flex justify-content-center"><i class="fa-regular fa-face-smile"></i></div>
                         <div class="inputMessage">
-                            <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                            <input @keyup.enter="sendNewMessage()" v-model="newMessage" type="text" class="form-control" placeholder="Scrivi un messaggio">
                         </div>
-                        <div class="vocalMessage d-flex justify-content-center"><i class="fa-solid fa-microphone"></i></div>
+                        <div v-if="newMessage" @click="sendNewMessage()" class="vocalMessage d-flex justify-content-center"><i class="fa-solid fa-paper-plane"></i></div>
+                        <div v-else class="vocalMessage d-flex justify-content-center"><i class="fa-solid fa-microphone"></i></div>
                     </div>
                 </div>
             </div>

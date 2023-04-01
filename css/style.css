@@ -153,6 +153,7 @@ header{
 }
 .right-app .mainContent .newMessage{
     padding: 1rem;
+    padding-right: 1.7rem;
     width: fit-content;
     margin: 1rem;
     border-radius: 10px;
@@ -164,6 +165,14 @@ header{
     overflow-wrap: break-word;
     hyphens: auto;
     max-width: 100%;
+    font-weight: 500;
+}
+.right-app .mainContent .newMessage span{
+    font-size: .6rem;
+    position: absolute;
+    bottom: 3px;
+    right: 7px;
+    opacity: .5;
 }
 .right-app .mainContent .newMessage.send{
     background-color: var(--sentMessage);
@@ -185,6 +194,9 @@ header{
     width: 100px;
 }
 .right-app .userBar .vocalMessage{
+    width: 100px;
+}
+.right-app .userBar .sendMessage{
     width: 100px;
 }
 .right-app .userBar .inputMessage{
