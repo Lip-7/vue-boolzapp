@@ -125,25 +125,71 @@ header{
 .right-app{
     width: 0%;
     background-color: var(--bgHeaderApp);
+    overflow: hidden;
 }
 /* headerRightApp */
 .right-app .headerRightApp{
     height: 72px;
+}
+.right-app .headerRightApp .userName{
+    line-height: 15px;
+}
+.right-app .friendChatInfo{
+    font-size: .8rem;
+    color: grey;
 }
 /* mainContent */
 .right-app .mainContent{
     height: calc(100% - 72px - 72px);
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
+    padding: 2rem;
+}
+.right-app .mainContent .newMessage{
+    padding: 1rem;
+    width: fit-content;
+    margin: 1rem;
+    border-radius: 10px;
+    max-width: 40%;
+}
+.right-app .mainContent .newMessage p{
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+}
+.right-app .mainContent .newMessage.send{
+    background-color: var(--sentMessage);
+    align-self: flex-end;
+}
+.right-app .mainContent .newMessage.received{
+    background-color: white;
 }
 /* userBar */
 .right-app .userBar{
     height: 72px;
 }
-.right-app .friendChatInfo{
-    font-size: .8rem;
-    color: grey;
+.right-app .userBar i{
+    font-size: 1.8rem;
+    color: gray;
+    cursor: pointer;
 }
+.right-app .userBar .emoticons{
+    width: 100px;
+}
+.right-app .userBar .vocalMessage{
+    width: 100px;
+}
+.right-app .userBar .inputMessage{
+    width: calc(100% - 200px);
+}
+.right-app .userBar .inputMessage input{
+    height: 50px;
+}
+ 
+
+
 
 
 /* MEDIA QUERIES */
