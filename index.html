@@ -43,22 +43,24 @@
                         <div class="searchBar p-2">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass px-3"></i></span>
-                                <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username">
+                                <input @keyup="filterFriends" v-model="research" type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username">
                               </div>
                         </div>
                         <div class="friendsList">
-                            <div class="singleFriend w-100 d-flex justify-content-between align-items-start px-3 py-2">
-                                <div class="singleFriendInfos d-flex justify-content-center align-items-center gap-4">
-                                    <div class="friendImg">
-                                        <img src="./img/avatar_1.jpg" alt="">
+                            <div v-for="user, index in contacts" :key="user.id" class="singleFriend w-100 d-flex justify-content-between align-items-start">
+                                <div v-if="user.visible" class="friendCondition w-100 d-flex justify-content-between align-items-start px-3 py-2">
+                                    <div class="singleFriendInfos d-flex justify-content-center align-items-center gap-4">
+                                        <div class="friendImg">
+                                            <img :src="user.avatar" :alt="user.name">
+                                        </div>
+                                        <div class="friendName">
+                                            <h5 class="mb-0 h6">{{user.name}}</h5>
+                                            <span class="small">{{user.messages[(user.messages.length - 1)].message}}</span>
+                                        </div>
                                     </div>
-                                    <div class="friendName">
-                                        <h5 class="mb-0 h6">Michele</h5>
-                                        <span class="small">Ultimo messaggio inviato</span>
+                                    <div class="messagedate">
+                                        <span class="small">{{getHour(user.messages[(user.messages.length - 1)].date)}}</span>
                                     </div>
-                                </div>
-                                <div class="messagedate">
-                                    <span class="small">12:00</span>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +107,7 @@
         </main>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./js/utility.js"></script>
+    <script src="./js/database.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>
