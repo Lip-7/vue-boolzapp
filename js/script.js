@@ -80,7 +80,20 @@ createApp({
             const itemToShow = this.$refs[ref];
             console.log(itemToShow);
             console.log(window.innerWidth);
-        }
+        },
+        switchToChat() {
+            if (window.innerWidth < 768) {
+                this.$refs.leftApp.style.width = '0%'
+                this.$refs.rightApp.style.width = '100%'
+            }
+        },
+        switchToFriends() {
+            if (window.innerWidth < 768) {
+                this.$refs.leftApp.style.width = '100%'
+                this.$refs.rightApp.style.width = '0%'
+            }
+        },
+
     },
     beforeMount() {
         this.getObjectById(1);
