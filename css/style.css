@@ -133,6 +133,18 @@ header{
     background-color: var(--bgHeaderApp);
     overflow: hidden;
 }
+.right-appPlaceHolder{
+    width: 0%;
+    background-color: var(--bgHeaderApp);
+    overflow: hidden;
+    position: relative;
+}
+.right-appPlaceHolder .placeHoldeFooter{
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* headerRightApp */
 .right-app .headerRightApp{
     height: 72px;
@@ -180,6 +192,23 @@ header{
 .right-app .mainContent .newMessage.received{
     background-color: white;
 }
+.right-app .mainContent .newMessage .messageInfo i{
+    color: var(--icons);
+}
+.right-app .mainContent .newMessage .messageInfo{
+    position: absolute;
+    top: 1px;
+    right: 3px;
+    cursor: pointer;
+    opacity: 0;
+}
+.right-app .newMessage .dropdown-toggle::after {
+    display: none;
+}
+.right-app .mainContent .newMessage:hover .messageInfo{
+    opacity: 1;
+}
+
 /* userBar */
 .right-app .userBar{
     height: 72px;
@@ -215,6 +244,9 @@ header{
         width: 40%;
     }
     .right-app{
+        width: 60%;
+    }
+    .right-appPlaceHolder{
         width: 60%;
     }
 }

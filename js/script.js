@@ -6,7 +6,7 @@ createApp({
             user: user,
             contacts: contacts,
             research: '',
-            idChatFlag: 1,
+            idChatFlag: 0,
             chatToView: null,
             newMessage: '',
             possibleAnswers: possibleAnswers,
@@ -75,10 +75,14 @@ createApp({
             setTimeout(() => {
                 this.$refs.chat.scrollTo(0, this.$refs.chat.scrollHeight);
             }, 50);
+        },
+        dropDown(ref) {
+            const itemToShow = this.$refs[ref];
+            console.log(itemToShow);
         }
     },
     beforeMount() {
-        this.getObjectById(this.idChatFlag);
+        this.getObjectById(1);
     },
     mounted() {
     },
