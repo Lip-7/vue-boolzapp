@@ -79,6 +79,7 @@ createApp({
         dropDown(ref) {
             const itemToShow = this.$refs[ref];
             console.log(itemToShow);
+            console.log(window.innerWidth);
         }
     },
     beforeMount() {

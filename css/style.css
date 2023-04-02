@@ -92,6 +92,9 @@ header{
     opacity: .7;
 }
 /* friends */
+.left-app .friends {
+    height: calc(100% - 82px - 72px);
+}
 .friendsList{
     overflow-y: auto;
     height: calc(100% - 54px);
@@ -148,6 +151,11 @@ header{
 /* headerRightApp */
 .right-app .headerRightApp{
     height: 72px;
+}
+.right-app .headerRightApp .returnToFriends{
+    color: var(--icons);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 .right-app .headerRightApp .userName{
     line-height: 15px;
@@ -248,5 +256,8 @@ header{
     }
     .right-appPlaceHolder{
         width: 60%;
+    }
+    .right-app .headerRightApp .returnToFriends{
+        display: none;
     }
 }
