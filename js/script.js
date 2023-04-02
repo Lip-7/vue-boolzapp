@@ -79,7 +79,6 @@ createApp({
         dropDown(ref) {
             const itemToShow = this.$refs[ref];
             console.log(itemToShow);
-            console.log(window.innerWidth);
         },
         switchToChat() {
             if (window.innerWidth < 768) {
