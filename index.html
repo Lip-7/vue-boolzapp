@@ -19,7 +19,7 @@
         <main class="vh-100 w-100 position-relative d-flex align-items-center">
             <header class="w-100"></header>
             <div class="web-app container d-flex p-0">
-                <div ref="leftApp" class="left-app d-flex flex-column">
+                <div v-if="idChatFlag < 1 || !isMobile" ref="leftApp" class="left-app d-flex flex-column">
                     <div class="headerLeftApp d-flex justify-content-between align-items-center">
                         <div class="userProfile px-2 py-3 d-flex justify-content-between align-items-center gap-2">
                             <div class="userImg">
