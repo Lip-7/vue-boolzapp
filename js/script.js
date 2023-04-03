@@ -12,6 +12,8 @@ createApp({
             possibleAnswers: possibleAnswers,
             vw: null,
             isMobile: false,
+            dropDownShow: null,
+            dropDownCheck: false,
         }
     },
     methods: {
@@ -38,12 +40,14 @@ createApp({
             this.chatToView = filteredList[0];
         },
         sendNewMessage() {
-            const newMessage = this.createNewMessage();
-            const destination = this.contacts.filter(chat => chat.id == this.idChatFlag)[0];
-            destination.messages.push(newMessage);
-            this.receiveNewMessage(destination)
-            this.seeLastMessages()
-            this.newMessage = ''
+            if (this.newMessage) {
+                const newMessage = this.createNewMessage();
+                const destination = this.contacts.filter(chat => chat.id == this.idChatFlag)[0];
+                destination.messages.push(newMessage);
+                this.receiveNewMessage(destination)
+                this.seeLastMessages()
+                this.newMessage = ''
+            }
         },
         receiveNewMessage(destin) {
             setTimeout(() => {
@@ -78,21 +82,9 @@ createApp({
                 this.$refs.chat.scrollTo(0, this.$refs.chat.scrollHeight);
             }, 50);
         },
-        dropDown(ref) {
-            const itemToShow = this.$refs[ref];
-            console.log(itemToShow);
-        },
-        switchToChat() {
-            if (window.innerWidth < 768) {
-                this.$refs.leftApp.style.width = '0%'
-                this.$refs.rightApp.style.width = '100%'
-            }
-        },
-        switchToFriends() {
-            if (window.innerWidth < 768) {
-                this.$refs.leftApp.style.width = '100%'
-                this.$refs.rightApp.style.width = '0%'
-            }
+        dropDown(i) {
+            this.dropDownShow = i;
+            this.dropDownCheck = !this.dropDownCheck
         },
         takeDevice() {
             this.vw = window.innerWidth;
@@ -101,6 +93,9 @@ createApp({
             } else {
                 this.isMobile = false;
             }
+        },
+        resetChatFlag() {
+            this.idChatFlag = 0;
         }
 
     },

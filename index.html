@@ -137,7 +137,7 @@
                 <div v-else class="right-app" ref="rightApp">
                     <div class="headerRightApp d-flex justify-content-between align-items-center">
                         <div class="userProfile px-2 py-3 d-flex justify-content-between align-items-center gap-2">
-                            <div class="returnToFriends px-2">
+                            <div @click="resetChatFlag()" class="returnToFriends px-2">
                                 <i class="fa-solid fa-angle-left"></i>
                             </div>
                             <div class="userImg">
@@ -160,11 +160,10 @@
                             class="newMessage d-flex align-items-center text-center flex-wrap position-relative">
                             <p class="text-start">{{comunication.message}}</p>
                             <span class="messageTime">{{getHour(comunication.date)}}</span>
-                            <a @click="dropDown('dropdownMenu')" class="messageInfo dropdown-toggle"><i class="fa-solid fa-angle-down"></i></a>
-                            <div class="dropdown-menu dropdown-menu-right" ref="dropdownMenu">
-                                <button class="dropdown-item" type="button">Action</button>
-                                <button class="dropdown-item" type="button">Another action</button>
-                                <button class="dropdown-item" type="button">Something else here</button>
+                            <a @click="dropDown(index)" class="messageInfo dropdown-toggle"><i class="fa-solid fa-angle-down"></i></a>
+                            <div class="dropdown-menu dropdown-menu-bottom" :class="{'show' : index === dropDownShow && !dropDownCheck}">
+                                <button class="dropdown-item" type="button">Delete</button>
+                                <button class="dropdown-item" type="button">Info</button>
                             </div>
                         </div>
                     </div>
@@ -172,7 +171,7 @@
                         <div class="emoticons d-flex justify-content-center"><i class="fa-regular fa-face-smile"></i>
                         </div>
                         <div class="inputMessage">
-                            <input @keyup.enter="sendNewMessage()" v-model="newMessage" type="text" class="form-control"
+                            <input @keyup.enter="sendNewMessage()" v-model.trim="newMessage" type="text" class="form-control"
                                 placeholder="Scrivi un messaggio">
                         </div>
                         <div v-if="newMessage" @click="sendNewMessage()"

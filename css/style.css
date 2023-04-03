@@ -39,7 +39,6 @@ header{
 .left-app{
     width: 100%;
     border-right: 1px solid rgba(128, 128, 128, .3);
-    
 }
 /* headerLeftApp */
 .headerLeftApp{
@@ -216,6 +215,10 @@ header{
 .right-app .mainContent .newMessage:hover .messageInfo{
     opacity: 1;
 }
+.dropdown-menu{
+    top: 20px;
+    right: 0;
+}
 
 /* userBar */
 .right-app .userBar{
@@ -259,5 +262,16 @@ header{
     }
     .right-app .headerRightApp .returnToFriends{
         display: none;
+    }
+}
+
+/* ANIMATIONS */
+
+@keyframes initialize {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
     }
 }
