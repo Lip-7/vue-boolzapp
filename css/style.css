@@ -37,35 +37,7 @@ header{
 /* LOADING PAGE */
 .splashPage h1{
     font-size: 4rem;
-    animation: shining 3s infinite linear, spashTitle 1s linear;
-}
-@keyframes splashTitle {
-    0%{
-        scale: 0;
-    }
-    90%{
-        scale: 1.2;
-    }
-    100%{
-        font-size: 1;
-    }
-}
-@keyframes shining {
-    0%{
-        text-shadow: 0px 0px 5px white;
-    }
-    25%{
-        text-shadow: 0px 0px 10px white;
-    }
-    50%{
-        text-shadow: 0px 0px 20px white;
-    }
-    80%{
-        text-shadow: 0px 0px 15px white;
-    }
-    100%{
-        text-shadow: 0px 0px 5px white;
-    }
+    animation: splashTitle .5s ease-in, shining 3s infinite linear;
 }
 
 .splashPage .ap {
@@ -374,4 +346,33 @@ header{
 		stroke-dashoffset: -669.92;
 		visibility: visible;
 	}
+}
+
+@keyframes splashTitle {
+    0%{
+        scale: 0;
+    }
+    90%{
+        scale: 1.2;
+    }
+    100%{
+        font-size: 1;
+    }
+}
+@keyframes shining {
+    0%{
+        text-shadow: 0px 0px 5px white;
+    }
+    25%{
+        text-shadow: 0px 0px 10px white;
+    }
+    50%{
+        text-shadow: 0px 0px 20px white;
+    }
+    80%{
+        text-shadow: 0px 0px 15px white;
+    }
+    100%{
+        text-shadow: 0px 0px 5px white;
+    }
 }
