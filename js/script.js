@@ -4,11 +4,11 @@ createApp({
     data() {
         return {
             user: user,
-            contacts: contacts,
+            contacts: contacts.map(contact => ({...contact, newMessage: ''})),
             research: '',
             idChatFlag: 0,
             chatToView: null,
-            newMessage: '',
+            /* newMessage: '', */
             possibleAnswers: possibleAnswers,
             vw: null,
             isMobile: false,
@@ -41,13 +41,13 @@ createApp({
             this.chatToView = filteredList[0];
         },
         sendNewMessage() {
-            if (this.newMessage) {
+            if (this.chatToView.newMessage) {
                 const newMessage = this.createNewMessage();
                 const destination = this.contacts.filter(chat => chat.id == this.idChatFlag)[0];
                 destination.messages.push(newMessage);
                 this.receiveNewMessage(destination)
                 this.seeLastMessages()
-                this.newMessage = ''
+                this.chatToView.newMessage = ''
             }
         },
         receiveNewMessage(destin) {
@@ -63,7 +63,7 @@ createApp({
         createNewMessage() {
             return {
                 date: this.actualTime(),
-                message: this.newMessage,
+                message: this.chatToView.newMessage,
                 status: 'sent'
              }
         },
@@ -114,6 +114,6 @@ createApp({
             this.takeDevice();
         })
         this.pageLoading()
-        
+        console.log(this.contacts);
     },
 }).mount('#app');
