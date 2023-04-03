@@ -132,7 +132,7 @@ header{
 
 /* right app */
 .right-app{
-    width: 0%;
+    width: 100%;
     background-color: var(--bgHeaderApp);
     overflow: hidden;
 }

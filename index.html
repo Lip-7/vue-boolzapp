@@ -156,18 +156,16 @@
                     </div>
                     <div class="mainContent d-flex flex-column overflow-y-auto" ref="chat">
                         <div :class="{'send' : comunication.status == 'sent', 'received' : comunication.status == 'received'}"
-                            v-for="comunication in chatToView.messages"
+                            v-for="(comunication, index) in chatToView.messages"
                             class="newMessage d-flex align-items-center text-center flex-wrap position-relative">
                             <p class="text-start">{{comunication.message}}</p>
                             <span class="messageTime">{{getHour(comunication.date)}}</span>
-                            <a @click="dropDown('dropdownMenu')" class="messageInfo dropdown-toggle"><i
-                                    class="fa-solid fa-angle-down"></i></a>
+                            <a @click="dropDown('dropdownMenu')" class="messageInfo dropdown-toggle"><i class="fa-solid fa-angle-down"></i></a>
                             <div class="dropdown-menu dropdown-menu-right" ref="dropdownMenu">
                                 <button class="dropdown-item" type="button">Action</button>
                                 <button class="dropdown-item" type="button">Another action</button>
                                 <button class="dropdown-item" type="button">Something else here</button>
                             </div>
-
                         </div>
                     </div>
                     <div class="userBar d-flex justify-content-between align-items-center">

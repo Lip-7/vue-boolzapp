@@ -10,6 +10,8 @@ createApp({
             chatToView: null,
             newMessage: '',
             possibleAnswers: possibleAnswers,
+            vw: null,
+            isMobile: false,
         }
     },
     methods: {
@@ -92,11 +94,24 @@ createApp({
                 this.$refs.rightApp.style.width = '0%'
             }
         },
+        takeDevice() {
+            this.vw = window.innerWidth;
+            if (this.vw < 768) {
+                this.isMobile = true;
+            } else {
+                this.isMobile = false;
+            }
+        }
 
     },
     beforeMount() {
         this.getObjectById(1);
     },
     mounted() {
+        this.takeDevice();
+        window.addEventListener('resize',() => {
+            this.takeDevice();
+        })
+        
     },
 }).mount('#app');
