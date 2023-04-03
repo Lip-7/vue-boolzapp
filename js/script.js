@@ -14,6 +14,7 @@ createApp({
             isMobile: false,
             dropDownShow: null,
             dropDownCheck: false,
+            pageloaded: true,
         }
     },
     methods: {
@@ -96,7 +97,12 @@ createApp({
         },
         resetChatFlag() {
             this.idChatFlag = 0;
-        }
+        },
+        pageLoading() {
+            setTimeout(() => {
+                this.pageloaded = !this.pageloaded
+            }, 4000);
+        },
 
     },
     beforeMount() {
@@ -107,6 +113,7 @@ createApp({
         window.addEventListener('resize',() => {
             this.takeDevice();
         })
+        this.pageLoading()
         
     },
 }).mount('#app');
