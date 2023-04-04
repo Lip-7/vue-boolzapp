@@ -40,27 +40,32 @@ createApp({
         getObjectById(id) {
             const filteredList = contacts.filter(obj => obj.id == id);
             this.chatToView = filteredList[0];
-            this.getLastMessageTime()
+            this.getLastMessageTime();
         },
         sendNewMessage() {
             if (this.chatToView.newMessage) {
                 const newMessage = this.createNewMessage();
                 const destination = this.contacts.filter(chat => chat.id == this.idChatFlag)[0];
                 destination.messages.push(newMessage);
-                this.receiveNewMessage(destination)
-                this.seeLastMessages()
-                this.chatToView.newMessage = ''
+                this.receiveNewMessage(destination);
+                this.seeLastMessages();
+                this.chatToView.newMessage = '';
             }
         },
         receiveNewMessage(destin) {
+            this.lastConnectionUser = 'Online'
+            setTimeout(() => {
+                this.lastConnectionUser = 'Sta scrivendo...'
+            }, 1000);
             setTimeout(() => {
                 const newMessage = this.createNewMessage();
                 const messageContent = this.possibleAnswers[this.getRandomNumber(0, this.possibleAnswers.length - 1)]
                 newMessage.status = 'received';
                 newMessage.message = messageContent;
                 destin.messages.push(newMessage);
-                this.seeLastMessages()
-                this.getLastMessageTime()
+                this.seeLastMessages();
+                this.getLastMessageTime();
+                this.getLastMessageTime();
             }, 3000);
         },
         createNewMessage() {
@@ -88,7 +93,7 @@ createApp({
         },
         dropDown(i) {
             this.dropDownShow = i;
-            this.dropDownCheck = !this.dropDownCheck
+            this.dropDownCheck = !this.dropDownCheck;
         },
         takeDevice() {
             this.vw = window.innerWidth;
@@ -103,14 +108,14 @@ createApp({
         },
         pageLoading() {
             setTimeout(() => {
-                this.pageloaded = !this.pageloaded
+                this.pageloaded = !this.pageloaded;
             }, 4000);
         },
         getLastMessageTime() {
             if (this.chatToView.messages.length > 0) {
-                this.lastConnectionUser = this.chatToView.messages[this.chatToView.messages.length - 1].date
+                this.lastConnectionUser = 'Ultimo accesso: ' + this.chatToView.messages[this.chatToView.messages.length - 1].date;
             } else {
-                this.lastConnectionUser = 'Non disponibile'
+                this.lastConnectionUser = 'Non disponibile';
             }
         }
 

@@ -212,6 +212,10 @@ const possibleAnswers = [
     "Ma quanno te laurei?",
     "Ma quanno te sposi?",
     "Che se fà a capodanno?",
+    "Se cerchi rogne ho degli amici da chiamà a Rebibbia!",
+    "Daje Romaaaa",
+    "Forza Maggica",
+    "Lunga vita ar pupone!"
 ];
 /* things to do:
 
