@@ -15,6 +15,7 @@ createApp({
             dropDownShow: null,
             dropDownCheck: false,
             pageloaded: true,
+            lastConnectionUser: null,
         }
     },
     methods: {
@@ -39,6 +40,7 @@ createApp({
         getObjectById(id) {
             const filteredList = contacts.filter(obj => obj.id == id);
             this.chatToView = filteredList[0];
+            this.getLastMessageTime()
         },
         sendNewMessage() {
             if (this.chatToView.newMessage) {
@@ -58,6 +60,7 @@ createApp({
                 newMessage.message = messageContent;
                 destin.messages.push(newMessage);
                 this.seeLastMessages()
+                this.getLastMessageTime()
             }, 3000);
         },
         createNewMessage() {
@@ -103,6 +106,13 @@ createApp({
                 this.pageloaded = !this.pageloaded
             }, 4000);
         },
+        getLastMessageTime() {
+            if (this.chatToView.messages.length > 0) {
+                this.lastConnectionUser = this.chatToView.messages[this.chatToView.messages.length - 1].date
+            } else {
+                this.lastConnectionUser = 'Non disponibile'
+            }
+        }
 
     },
     beforeMount() {
