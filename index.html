@@ -76,22 +76,22 @@
                             </div>
                         </div>
                         <div class="friendsList">
-                            <div v-for="user, index in contacts" :key="user.id"
+                            <div v-for="friend, index in contacts" :key="friend.id"
                                 class="singleFriend w-100 d-flex justify-content-between align-items-start">
-                                <div @click="selectNewChat(user.id)" :class="{'active' : (user.id == idChatFlag)}" v-if="user.visible"
+                                <div @click="selectNewChat(friend.id)" :class="{'active' : (friend.id == idChatFlag)}" v-if="friend.visible"
                                     class="friendCondition w-100 d-flex justify-content-between align-items-start px-3 py-2">
                                     <div class="singleFriendInfos d-flex justify-content-center align-items-center gap-4">
                                         <div class="friendImg">
-                                            <img :src="user.avatar" :alt="user.name">
+                                            <img :src="friend.avatar" :alt="friend.name">
                                         </div>
                                         <div class="friendName">
-                                            <h5 class="mb-0 h6">{{user.name}}</h5>
-                                            <span class="small">{{user.messages[(user.messages.length -
+                                            <h5 class="mb-0 h6">{{friend.name}}</h5>
+                                            <span v-if="friend.messages[0]" class="small">{{friend.messages[(friend.messages.length -
                                                 1)].message}}</span>
                                         </div>
                                     </div>
                                     <div class="messagedate">
-                                        <span class="small">{{getHour(user.messages[(user.messages.length -
+                                        <span v-if="friend.messages[0]" class="small">{{getHour(friend.messages[(friend.messages.length -
                                             1)].date)}}</span>
                                     </div>
                                 </div>

@@ -146,6 +146,5 @@ createApp({
             this.takeDevice();
         })
         this.pageLoading()
-        console.log(this.contacts);
     },
 }).component('Picker', Picker).mount('#app');
