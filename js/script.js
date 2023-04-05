@@ -1,21 +1,25 @@
+import Picker from './emoji-picker.js';
 const { createApp } = Vue;
 
 createApp({
     data() {
         return {
             user: user,
-            contacts: contacts.map(contact => ({...contact, newMessage: ''})),
+            contacts: contacts.map(contact => ({...contact, newMessage: ' '})),
             research: '',
             idChatFlag: 0,
             chatToView: null,
-            /* newMessage: '', */
             possibleAnswers: possibleAnswers,
             vw: null,
             isMobile: false,
-            dropDownShow: null,
-            dropDownCheck: false,
             pageloaded: true,
             lastConnectionUser: null,
+            messageActive: {
+                index: false,
+                show: false
+            },
+            showEmoji: false,
+
         }
     },
     methods: {
@@ -92,8 +96,16 @@ createApp({
             }, 50);
         },
         dropDown(i) {
-            this.dropDownShow = i;
-            this.dropDownCheck = !this.dropDownCheck;
+            if (this.messageActive.index != false && this.messageActive.index != i) {
+                this.messageActive.show = false;
+                this.messageActive.index = false;
+            }
+            this.messageActive.show = (this.messageActive.show) ? false : true;
+            this.messageActive.index = i;
+        },
+        deleteMessage(i) {
+            this.chatToView.messages.splice(i, 1)
+            this.dropDown(i)
         },
         takeDevice() {
             this.vw = window.innerWidth;
@@ -109,7 +121,7 @@ createApp({
         pageLoading() {
             setTimeout(() => {
                 this.pageloaded = !this.pageloaded;
-            }, 4000);
+            }, 3000);
         },
         getLastMessageTime() {
             if (this.chatToView.messages.length > 0) {
@@ -117,8 +129,13 @@ createApp({
             } else {
                 this.lastConnectionUser = 'Non disponibile';
             }
-        }
-
+        },
+        viewEmoji() {
+            this.showEmoji = !this.showEmoji;
+        },
+        onSelectEmoji(emoji) {
+            this.chatToView.newMessage += emoji.i;
+        },
     },
     beforeMount() {
         this.getObjectById(1);
@@ -131,4 +148,4 @@ createApp({
         this.pageLoading()
         console.log(this.contacts);
     },
-}).mount('#app');
+}).component('Picker', Picker).mount('#app');

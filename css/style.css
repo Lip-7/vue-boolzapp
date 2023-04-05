@@ -245,9 +245,13 @@ header{
 .right-app .mainContent .newMessage:hover .messageInfo{
     opacity: 1;
 }
-.dropdown-menu{
+.send .dropdown-menu{
     top: 20px;
     right: 0;
+}
+.received .dropdown-menu{
+    top: 20px;
+    right: -130px;
 }
 
 /* userBar */
@@ -274,7 +278,11 @@ header{
 .right-app .userBar .inputMessage input{
     height: 50px;
 }
- 
+.right-app .userBar .emojiMenu{
+    position: absolute;
+    top: -341px;
+    left: 31px;
+}
 
 
 
