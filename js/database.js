@@ -174,6 +174,11 @@ const user = {
     name: 'Lip',
     avatar: './img/bulldog-chess.png',
 }
+const messageTpl = {
+    index: false,
+    show: false
+}
+
 const possibleAnswers = [
     "Le donne sono tutte uguali.",
     "Le donne non sanno guidare.",
@@ -222,8 +227,6 @@ funzionalità:
 
 - dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera chat con tutti i suoi dati: cliccando sull'icona con i tre pallini in alto a destra, si apre un dropdown menu in cui sono presenti le voci "Elimina messaggi" ed "Elimina chat"; cliccando su di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi rimane la conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
 - dare la possibilità all'utente di aggiungere una nuova conversazione, inserendo in un popup il nome e il link all'icona del nuovo contatto
-domani - aggiungere le emoticons, anche tramite l'utilizzo di una libreria
-- cancellare il messaggio selezionato
 
 graphics:
 

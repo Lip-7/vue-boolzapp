@@ -14,10 +14,7 @@ createApp({
             isMobile: false,
             pageloaded: true,
             lastConnectionUser: null,
-            messageActive: {
-                index: false,
-                show: false
-            },
+            messageActive: messageTpl,
             showEmoji: false,
 
         }
@@ -102,6 +99,10 @@ createApp({
             }
             this.messageActive.show = (this.messageActive.show) ? false : true;
             this.messageActive.index = i;
+        },
+        resetDropDown() {
+            this.messageActive.index = false;
+            this.messageActive.show = false;
         },
         deleteMessage(i) {
             this.chatToView.messages.splice(i, 1)
